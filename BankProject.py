@@ -6,6 +6,19 @@ class Customer:
         self.username = username
         self.password = password
     
+    def existing_customer(self):
+        existing_customer_data = {"First Name": self.first_name,
+                "Last Name": self.last_name,
+                "Username": self.username,
+                "Password": self.password}
+        
+        return existing_customer_data
+
+new_customer = Customer("Lah", "Soe", "Lsoe", 1738)
+print(new_customer.existing_customer())
+
+    
+
 
 
 #Create a dictionary of existing customers 
