@@ -6,27 +6,22 @@ class Customer:
         self.username = username
         self.password = password
     
-    def existing_customer(self):
-        store_customer_data = {"First Name": self.first_name,
-                "Last Name": self.last_name,
-                "Username": self.username,
-                "Password": self.password}
-        
-        return store_customer_data
-    
-    def adding_customer(self):
-        add_customer = {"First Name": self.first_name,
-                "Last Name": self.last_name,
-                "Username": self.username,
-                "Password": self.password}
-        #Wanting to append something here
-        return add_customer
+    stored_customer_data = {
+        "customer_one" : {
+            "First Name": "Lah",
+            "Last Name": "Soe",
+            "Username": "Lsoe",
+            "Password": "1738@Lah"},
+        "customer_two" : {
+            "First Name": "Trans",
+            "Last Name": "MathisSin",
+            "Username": "TransMath",
+            "Password": "CookieN!"
+        }
+    }
 
 
 
-if __name__ == "__main__":
-    var_name = Customer("Lah", "Soe", "Lsoe", 1738)
-    print(Customer.existing_customer(var_name))
 
     
 
