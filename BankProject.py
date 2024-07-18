@@ -20,15 +20,18 @@ class Customer:
         }
     }
 
+#SignUp
+class SignUp:
+    def __init__(self, new_user, password):
+        pass
+
+#Log In
+def SignIn():
+    pass
+
+#Bank Class
+class Bank:
+    def __init__(self, initial_balance, deposit, total_deposits, total_withdrawals):
+        pass
 
 
-
-    
-
-
-
-#Create a dictionary of existing customers 
-#Add two existing customers
-
-
-#Sign Up
