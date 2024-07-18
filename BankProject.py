@@ -19,9 +19,20 @@ existing_customer = [
     #Two existing customers
 #SignUp
 class SignUp:
-    def __init__(self, new_user, password):
+    def new_users():
+        firstName = input("Enter First Name: ")
+        lastName = input("Enter Last Name: ")
+        password = input("Enter Password: ")
+
+        return f"Full Name:{firstName} {lastName}"
         pass
 
+    def password():
+        newPassword = input("Enter New Password: ")
+        
+        pass
+
+print(SignUp.new_users())
 
 #Log In
 def SignIn():
