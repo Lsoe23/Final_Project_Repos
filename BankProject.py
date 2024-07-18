@@ -5,25 +5,23 @@ class Customer:
         self.last_name = last_name
         self.username = username
         self.password = password
-    
-    stored_customer_data = {
-        "customer_one" : {
-            "First Name": "Lah",
-            "Last Name": "Soe",
-            "Username": "Lsoe",
-            "Password": "1738@Lah"},
-        "customer_two" : {
-            "First Name": "Trans",
-            "Last Name": "MathisSin",
-            "Username": "TransMath",
-            "Password": "CookieN!"
-        }
-    }
 
+    #Instead of printing out object the address of the function, this functin provide a more descriptive inside
+    def __repr__(self):
+        return f"Customer(first_name='{self.first_name}, last_name='{self.last_name}', username='{self.username}, password='{self.password}')"
+
+#We're storing existing customer data here and uploading new customer data here
+existing_customer = [
+    Customer(first_name = "Lah", last_name = "Soe", username = "Lsoe", password = "1738@lsoe"),
+    Customer(first_name = "Anita", last_name = "Kiss", username = "AnitaKiss", password = "Crispybacon")
+    ]
+    
+    #Two existing customers
 #SignUp
 class SignUp:
     def __init__(self, new_user, password):
         pass
+
 
 #Log In
 def SignIn():
