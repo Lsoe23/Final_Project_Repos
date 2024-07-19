@@ -29,18 +29,29 @@ class SignUp:
 
     def password():
         newPassword = input("Enter New Password: ")
-        
+        reEnterPassword = input("Re-enter Password: ")
+
         pass
 
-print(SignUp.new_users())
 
 #Log In
 def SignIn():
+    #Use while loop to allow user 5 attemps
+    Recent_Username = input("Enter Username: ")
+    Recent_Password = input("Enter Password: ")
+
     pass
 
 #Bank Class
 class Bank:
-    def __init__(self, initial_balance, deposit, total_deposits, total_withdrawals):
+    def __init__(self, initial_balance = 1000, deposit = 0, total_deposits = 0, total_withdrawals = 0):
+        self.initial_balance = initial_balance
+        self.deposit = deposit
+        self.total_deposits = total_deposits
+        self.total_withdrawals = total_withdrawals
+
+    def transaction():
+        print("[1]Show Balance\n[2]Deposit\n[3]Withdrawal\n[4]Print Statement\n[5]Email Statement\n[6]Quit")
         pass
 
 
