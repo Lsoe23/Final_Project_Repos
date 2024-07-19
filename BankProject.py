@@ -6,10 +6,8 @@ class Customer:
         self.username = username
         self.password = password
 
-    #Instead of printing out object the address of the function, this functin provide a more descriptive inside
     def __repr__(self):
-        return f"Customer(first_name='{self.first_name}, last_name='{self.last_name}', username='{self.username}, password='{self.password}')"
-
+        return f"Customer(first_name={self.first_name}, last_name={self.last_name}, username={self.username}, password={self.password})"
 #We're storing existing customer data here and uploading new customer data here
 existing_customer = [
     Customer(first_name = "Lah", last_name = "Soe", username = "Lsoe", password = "1738@lsoe"),
@@ -22,25 +20,37 @@ class SignUp:
     def new_users():
         firstName = input("Enter First Name: ")
         lastName = input("Enter Last Name: ")
+
         password = input("Enter Password: ")
 
-        return f"Full Name:{firstName} {lastName}"
+        return f"Full Name:{firstName} {lastName}, Password: {password}"
         pass
 
     def password():
         newPassword = input("Enter New Password: ")
         reEnterPassword = input("Re-enter Password: ")
 
-        pass
+        return f"New Password:{newPassword} {reEnterPassword}"
 
+        pass
 
 #Log In
 def SignIn():
     #Use while loop to allow user 5 attemps
-    Recent_Username = input("Enter Username: ")
-    Recent_Password = input("Enter Password: ")
+    attempts = 0
+    while (attempts < 5):
+        Recent_Username = input("Enter Username: ")
+        Recent_Password = input("Enter Password: ")
 
-    pass
+        for customer in existing_customer:
+            if customer.username == Recent_Username and customer.password == Recent_Password:
+                return "Access Granted"
+            break
+        
+        attempts += 1
+        print(f"{5 - attempts}")
+
+SignIn()
 
 #Bank Class
 class Bank:
