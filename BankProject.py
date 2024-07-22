@@ -61,7 +61,7 @@ class SignUp:
 
             break
     #To access the password function, I had to change which function comes first
-    
+
     def new_users():
 
         firstName = input("Enter First Name: ").title().strip()
@@ -70,11 +70,12 @@ class SignUp:
         userName = input("Enter Username: ").strip()
         passWord = SignUp.password()
             
+        #adding the new customer
         new_customer = Customer(first_name = firstName, last_name = lastName, username = userName, password = passWord)
         existing_customer.append(new_customer)
 
-SignUp.new_users()
-print(existing_customer)
+# SignUp.new_users()
+# print(existing_customer)
 
 
 #Log In
@@ -99,14 +100,35 @@ def SignIn():
 
 #Bank Class
 class Bank:
-    def __init__(self, initial_balance = 1000, deposit = 0, total_deposits = 0, total_withdrawals = 0):
+    def transaction(self, initial_balance = 1000, deposit = 0, withdraw = 0, total_deposits = 0, total_withdrawals = 0):
         self.initial_balance = initial_balance
         self.deposit = deposit
+        self.withdraw = withdraw
         self.total_deposits = total_deposits
         self.total_withdrawals = total_withdrawals
 
-    def transaction():
         print("[1]Show Balance\n[2]Deposit\n[3]Withdrawal\n[4]Print Statement\n[5]Email Statement\n[6]Quit")
+
+        user_decis = int(input("Enter Choice: "))
+
+        if user_decis == 1:
+            print(f"Current Balance: {self.initial_balance}")
+        elif user_decis == 2:
+            print("Making Deposit:[1]20\n[2]40\n[3]60\n[4]80\n[5]100\n[6]Custom Amount")
+            pass
+        elif user_decis == 3:
+            pass
+        elif user_decis == 4:
+            pass
+        elif user_decis == 5:
+            pass
+        elif user_decis == 6:
+            pass
         pass
+
+bank_account = Bank()
+bank_account.transaction()
+
+    
 
 
