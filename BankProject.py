@@ -94,7 +94,7 @@ def SignIn():
         attempts += 1
         print(f"{5 - attempts}")
     
-    return("Multiple Incorrect Attempt!\nDevice Locked")
+    return("Multiple Incorrect Attempt!\nApps Locked")
 
 
 
@@ -107,16 +107,42 @@ class Bank:
         self.total_deposits = total_deposits
         self.total_withdrawals = total_withdrawals
 
-        print("[1]Show Balance\n[2]Deposit\n[3]Withdrawal\n[4]Print Statement\n[5]Email Statement\n[6]Quit")
+        print("[1]Show Balance\n[2]Withdrawal\n[3]Deposit\n[4]Print Statement\n[5]Email Statement\n[6]Quit")
 
         user_decis = int(input("Enter Choice: "))
 
         if user_decis == 1:
             print(f"Current Balance: {self.initial_balance}")
         elif user_decis == 2:
-            print("Making Deposit:[1]20\n[2]40\n[3]60\n[4]80\n[5]100\n[6]Custom Amount")
+            print("Making Withdrawal:\n[1]20\n[2]40\n[3]60\n[4]80\n[5]100\n[6]Custom Amount")
+            user_choice = int(input("Choose Amount: "))
+            if user_choice == 1:
+                self.initial_balance = self.initial_balance - 20
+                print(self.initial_balance)
+            elif user_choice == 2:
+                self.initial_balance = self.initial_balance - 40
+                print(self.initial_balance)
+            elif user_choice == 3:
+                self.initial_balance = self.initial_balance - 60
+                print(self.initial_balance)
+            elif user_choice == 4:
+                self.initial_balance = self.initial_balance - 80
+                print(self.initial_balance)
+            elif user_choice == 5:
+                self.initial_balance = self.initial_balance - 100
+                print(self.initial_balance)
+            elif user_choice == 6:
+                money_input = int(input("Enter Amount: "))
+                if money_input % 20 == 0:
+                    self.initial_balance = self.initial_balance - money_input
+                    print(self.initial_balance)
+                else:
+                    print("Invalid Entry! Has to be divisible by $20")
             pass
         elif user_decis == 3:
+            money_input = int(input("Enter Amount to Deposit: "))
+            self.initial_balance = self.initial_balance + money_input
+            print(self.initial_balance)
             pass
         elif user_decis == 4:
             pass
