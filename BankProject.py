@@ -1,5 +1,4 @@
 #Creating Customer Class with 4 parameters
-from termcolor import colored
 
 class Customer:
     def __init__(self, first_name, last_name, username, password):
@@ -254,6 +253,18 @@ class Bank:
                     pass
                 elif user_decis == 5:
                     #Email Statement
+                    with open('Email_Statement.docx', 'w') as email_statement:
+                        email_statement.write(" \n")
+                        email_statement.write("               Your Email Statement                    \n")
+                        email_statement.write("*************************************************\n")
+                        email_statement.write(" \n")
+                        email_statement.write("               Lah's Banking                     \n")
+                        email_statement.write("*************************************************\n")
+                        email_statement.write(" \n")
+                        email_statement.write(f"      Total Withdrawal:............ ${self.withdraw:.2f}\n")
+                        email_statement.write(f"      Total Deposit:............... ${self.deposit:.2f}\n")
+                        email_statement.write(f"      Remaining Balance:........... ${self.initial_balance:.2f}\n")
+                        email_statement.write(" \n")
                     pass
                 elif user_decis == 6:
                     print("Thank You for Banking With Us!")
