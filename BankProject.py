@@ -1,4 +1,6 @@
 #Creating Customer Class with 4 parameters
+from termcolor import colored
+
 class Customer:
     def __init__(self, first_name, last_name, username, password):
         self.first_name = first_name
@@ -106,51 +108,157 @@ class Bank:
         self.withdraw = withdraw
         self.total_deposits = total_deposits
         self.total_withdrawals = total_withdrawals
-
-        print("[1]Show Balance\n[2]Withdrawal\n[3]Deposit\n[4]Print Statement\n[5]Email Statement\n[6]Quit")
-
-        user_decis = int(input("Enter Choice: "))
-
-        if user_decis == 1:
-            print(f"Current Balance: {self.initial_balance}")
-        elif user_decis == 2:
-            print("Making Withdrawal:\n[1]20\n[2]40\n[3]60\n[4]80\n[5]100\n[6]Custom Amount")
-            user_choice = int(input("Choose Amount: "))
-            if user_choice == 1:
-                self.initial_balance = self.initial_balance - 20
-                print(self.initial_balance)
-            elif user_choice == 2:
-                self.initial_balance = self.initial_balance - 40
-                print(self.initial_balance)
-            elif user_choice == 3:
-                self.initial_balance = self.initial_balance - 60
-                print(self.initial_balance)
-            elif user_choice == 4:
-                self.initial_balance = self.initial_balance - 80
-                print(self.initial_balance)
-            elif user_choice == 5:
-                self.initial_balance = self.initial_balance - 100
-                print(self.initial_balance)
-            elif user_choice == 6:
-                money_input = int(input("Enter Amount: "))
-                if money_input % 20 == 0:
-                    self.initial_balance = self.initial_balance - money_input
-                    print(self.initial_balance)
-                else:
-                    print("Invalid Entry! Has to be divisible by $20")
-            pass
-        elif user_decis == 3:
-            money_input = int(input("Enter Amount to Deposit: "))
-            self.initial_balance = self.initial_balance + money_input
-            print(self.initial_balance)
-            pass
-        elif user_decis == 4:
-            pass
-        elif user_decis == 5:
-            pass
-        elif user_decis == 6:
-            pass
-        pass
+        
+        while True:
+            print("[1]Show Balance\n[2]Withdraw\n[3]Deposit\n[4]Print Statement\n[5]Email Statement\n[6]Quit")
+            try:
+                user_decis = int(input("Enter Choice: "))
+            except ValueError:
+                print("Invalid Entry")
+                continue
+            else:
+                if user_decis == 1:
+                    print(f"\nCurrent Balance: ${self.initial_balance:.2f}")
+                    print(".........................................")
+                    print()
+                    continue
+                elif user_decis == 2:
+                    while True:
+                        print("Making Withdraw:\n[1]20\n[2]40\n[3]60\n[4]80\n[5]100\n[6]Custom Amount")
+                        try:
+                            user_choice = int(input("Choose Amount: "))
+                        except ValueError:
+                            print("Invalid Entry")
+                            continue
+                        else:
+                            if user_choice == 1:
+                                self.initial_balance = self.initial_balance - 20
+                                self.withdraw = self.withdraw + 20
+                                print(self.initial_balance)
+                                try:
+                                    wth_drawal_again = int(input("Do you want to withdraw more:\n[1]Yes\n[2]No\nChoose: "))
+                                except ValueError:
+                                    print("Invalid Entry")
+                                else:
+                                    if wth_drawal_again == 1:
+                                        continue
+                                    else:
+                                        break
+                            elif user_choice == 2:
+                                self.initial_balance = self.initial_balance - 40
+                                self.withdraw = self.withdraw + 40
+                                print(self.initial_balance)
+                                try:
+                                    wth_drawal_again = int(input("Do you want to withdraw more:\n[1]Yes\n[2]No\nChoose: "))
+                                except ValueError:
+                                    print("Invalid Entry")
+                                else:
+                                    if wth_drawal_again == 1:
+                                        continue
+                                    else:
+                                        break
+                            elif user_choice == 3:
+                                self.initial_balance = self.initial_balance - 60
+                                self.withdraw = self.withdraw + 60
+                                print(self.initial_balance)
+                                try:
+                                    wth_drawal_again = int(input("Do you want to withdraw more:\n[1]Yes\n[2]No\nChoose: "))
+                                except ValueError:
+                                    print("Invalid Entry")
+                                    if wth_drawal_again == 1:
+                                        continue
+                                    else:
+                                        break
+                            elif user_choice == 4:
+                                self.initial_balance = self.initial_balance - 80
+                                self.withdraw = self.withdraw + 80
+                                print(self.initial_balance)
+                                try:
+                                    wth_drawal_again = int(input("Do you want to withdraw more:\n[1]Yes\n[2]No\nChoose: "))
+                                except ValueError:
+                                    print("Invalid Entry")
+                                else:
+                                    if wth_drawal_again == 1:
+                                        continue
+                                    else:
+                                        break
+                            elif user_choice == 5:
+                                self.initial_balance = self.initial_balance - 100
+                                self.withdraw = self.withdraw + 100
+                                print(self.initial_balance)
+                                try:
+                                    wth_drawal_again = int(input("Do you want to withdraw more:\n[1]Yes\n[2]No\nChoose: "))
+                                except ValueError:
+                                    print("Invalid Entry")
+                                else:
+                                    if wth_drawal_again == 1:
+                                        continue
+                                    else:
+                                        break
+                            elif user_choice == 6:
+                                try:
+                                    money_input = int(input("Enter Amount: "))
+                                except ValueError:
+                                    print("Invalid Entry")
+                                else:
+                                    if money_input % 20 == 0:
+                                        self.initial_balance = self.initial_balance - money_input
+                                        self.withdraw = self.withdraw + money_input
+                                        print(self.initial_balance)
+                                        try:
+                                            wth_drawal_again = int(input("Do you want to withdraw more:\n[1]Yes\n[2]No\nChoose: "))
+                                        except ValueError:
+                                            print("Invalid Entry")
+                                        else:
+                                            if wth_drawal_again == 1:
+                                                continue
+                                            else:
+                                                break
+                                    else:
+                                        print("Invalid Entry! Has to be divisible by $20")
+                                        continue
+                elif user_decis == 3:
+                    while True:
+                        try:
+                            money_input = int(input("Enter Amount to Deposit: "))
+                        except ValueError:
+                            print("Invalid Entry")
+                        else:
+                            self.initial_balance = self.initial_balance + money_input
+                            self.deposit = self.deposit + money_input
+                            print(self.initial_balance)
+                            try:
+                                more_deposit = int(input("Do you want to Deposit Again:\n[1]Yes\n[2]No\nChoice: "))
+                            except ValueError:
+                                print("Invalid Entry")
+                            else:
+                                if more_deposit == 1:
+                                    continue
+                                else:
+                                    break
+                elif user_decis == 4:
+                    print()
+                    print("               Your Statement                    ")
+                    print("*************************************************")
+                    print()
+                    print("               Lah's Banking                     ")
+                    print("*************************************************")
+                    print()
+                    print(f"      Total Withdrawal:............ ${self.withdraw:.2f}")
+                    print(f"      Total Deposit:............... ${self.deposit:.2f}")
+                    print()
+                    print(f"      Remaining Balance:........... ${self.initial_balance:.2f}")
+                    print()
+                    print()
+                    continue
+                    pass
+                elif user_decis == 5:
+                    #Email Statement
+                    pass
+                elif user_decis == 6:
+                    print("Thank You for Banking With Us!")
+                    break
+                    pass
 
 bank_account = Bank()
 bank_account.transaction()
