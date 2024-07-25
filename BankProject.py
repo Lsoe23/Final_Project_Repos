@@ -1,5 +1,4 @@
 #Creating Customer Class with 4 parameters
-
 class Customer:
     def __init__(self, first_name, last_name, username, password):
         self.first_name = first_name
@@ -73,13 +72,11 @@ class SignUp:
         new_customer = Customer(first_name = firstName, last_name = lastName, username = userName, password = passWord)
         existing_customer.append(new_customer)
 
-# SignUp.new_users()
-# print(existing_customer)
-
 
 #Log In
 def SignIn():
-    #Use while loop to allow user 5 attemps
+    #Use while loop to allow user 5 attempst
+    #Making sure the users enter their credential correctly.
     attempts = 0
     while (attempts < 5):
         Recent_Username = input("Enter Username: ")
@@ -111,19 +108,24 @@ class Bank:
     def transaction(self):
         
         while True:
+        #Allowing users to make as many iteration of transaction they want
             print("[1]Show Balance\n[2]Withdraw\n[3]Deposit\n[4]Print Statement\n[5]Email Statement\n[6]Quit")
             try:
                 user_decis = int(input("Enter Choice: "))
+            #Catching error so instead of breaking our progra, it's going to raise the problem and 
+            #let user redo
             except ValueError:
                 print("Invalid Entry")
                 continue
             else:
                 if user_decis == 1:
+                    #Showing the user their initial balance or how much money they have in their bank account
                     print(f"\nCurrent Balance: ${self.initial_balance:.2f}")
                     print(".........................................")
                     print()
                     continue
                 elif user_decis == 2:
+                    #Giving user the options to decide how much they want to withdraw
                     while True:
                         print("Making Withdraw:\n[1]20\n[2]40\n[3]60\n[4]80\n[5]100\n[6]Custom Amount")
                         try:
@@ -204,6 +206,7 @@ class Bank:
                                 else:
                                     if money_input % 20 == 0:
                                         self.initial_balance = self.initial_balance - money_input
+                                        #self.withdraw keeps track of money being withdraw
                                         self.withdraw = self.withdraw + money_input
                                         print(self.initial_balance)
                                         try:
@@ -219,6 +222,7 @@ class Bank:
                                         print("Invalid Entry! Has to be divisible by $20")
                                         continue
                 elif user_decis == 3:
+                    #Allowing the users to enter the amount of money they want to deposit
                     while True:
                         try:
                             money_input = int(input("Enter Amount to Deposit: "))
@@ -238,6 +242,7 @@ class Bank:
                                 else:
                                     break
                 elif user_decis == 4:
+                    #Printing out some form of Receipt
                     print()
                     print("               Your Statement                    ")
                     print("*************************************************")
@@ -254,7 +259,7 @@ class Bank:
                     continue
                     pass
                 elif user_decis == 5:
-                    #Email Statement
+                    #Email Statement by creating another document
                     with open('Email_Statement.docx', 'w') as email_statement:
                         email_statement.write(" \n")
                         email_statement.write("               Your Email Statement                    \n")
@@ -269,15 +274,13 @@ class Bank:
                         email_statement.write(" \n")
                     pass
                 elif user_decis == 6:
+                    #Thanking the customer for Banking with us!
                     print("Thank You for Banking With Us!")
                     break
                     
 
-# bank_account = Bank()
-# bank_account.transaction()
-
+#Allowing a form of script!
 if __name__ == "__main__":
-    # bank_account = Bank()
     print("Welcome to Lah's Banking")
     while True:
         try:
