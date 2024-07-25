@@ -19,7 +19,6 @@ existing_customer = [
     #Two existing customers
 #SignUp
 class SignUp:
-
     def password():
         special_char = ["[", "]", "!", "@", "#", "$", "%", "-", "&", "*", "=", "_"]
 
@@ -55,14 +54,13 @@ class SignUp:
                 confirmed_password = input("Re-enter Password: ")
                 if confirmed_password == passWord:
                     print("Password confirmed.")
-                    break
+                    return confirmed_password
                 else:
                     print("Passwords do not match. Please try again.")
                     continue
 
             break
     #To access the password function, I had to change which function comes first
-
     def new_users():
 
         firstName = input("Enter First Name: ").title().strip()
@@ -93,7 +91,7 @@ def SignIn():
             break
         
         attempts += 1
-        print(f"{5 - attempts}")
+        print(f"Chances left: {5 - attempts}")
     
     return("Multiple Incorrect Attempt!\nApps Locked")
 
@@ -271,8 +269,25 @@ class Bank:
                     break
                     pass
 
-bank_account = Bank()
-bank_account.transaction()
+# bank_account = Bank()
+# bank_account.transaction()
+
+if __name__ == "__main__":
+    # bank_account = Bank()
+    print("Welcome to Lah's Banking")
+    while True:
+        customer_entry = int(input("[1]Log In\n[2]Sign Up\nChoose: "))
+        if customer_entry == 1:
+            if SignIn():
+                bank_account = Bank()
+                bank_account.transaction()
+            break
+        
+        elif customer_entry == 2:
+            SignUp.new_users()
+            print(existing_customer)
+            continue
+
 
     
 
