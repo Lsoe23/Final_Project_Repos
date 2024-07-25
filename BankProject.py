@@ -271,7 +271,7 @@ class Bank:
                 elif user_decis == 6:
                     print("Thank You for Banking With Us!")
                     break
-                    pass
+                    
 
 # bank_account = Bank()
 # bank_account.transaction()
@@ -280,17 +280,20 @@ if __name__ == "__main__":
     # bank_account = Bank()
     print("Welcome to Lah's Banking")
     while True:
-        customer_entry = int(input("[1]Log In\n[2]Sign Up\nChoose: "))
-        if customer_entry == 1:
-            if SignIn():
-                bank_account = Bank()
-                bank_account.transaction()
-            break
-        
-        elif customer_entry == 2:
-            SignUp.new_users()
-            print(existing_customer)
-            continue
+        try:
+            customer_entry = int(input("[1]Log In\n[2]Sign Up\nChoose: "))
+        except ValueError:
+            print("Invalid Input!")
+        else:
+            if customer_entry == 1:
+                if SignIn():
+                    bank_account = Bank()
+                    bank_account.transaction()
+                break
+            
+            elif customer_entry == 2:
+                SignUp.new_users()
+                continue
 
 
     
