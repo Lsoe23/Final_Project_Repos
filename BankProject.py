@@ -87,24 +87,28 @@ def SignIn():
 
         for customer in existing_customer:
             if customer.username == Recent_Username and customer.password == Recent_Password:
-                return "Access Granted"
-            break
+                print("Access Granted")
+                return True
         
         attempts += 1
         print(f"Chances left: {5 - attempts}")
     
-    return("Multiple Incorrect Attempt!\nApps Locked")
+    print("Multiple Incorrect Attempt! Apps Locked")
+    return False
+
 
 
 
 #Bank Class
 class Bank:
-    def transaction(self, initial_balance = 1000, deposit = 0, withdraw = 0, total_deposits = 0, total_withdrawals = 0):
+    def __init__(self, initial_balance=1000, deposit=0, withdraw=0, total_deposits=0, total_withdrawals=0):
         self.initial_balance = initial_balance
         self.deposit = deposit
         self.withdraw = withdraw
         self.total_deposits = total_deposits
         self.total_withdrawals = total_withdrawals
+
+    def transaction(self):
         
         while True:
             print("[1]Show Balance\n[2]Withdraw\n[3]Deposit\n[4]Print Statement\n[5]Email Statement\n[6]Quit")
